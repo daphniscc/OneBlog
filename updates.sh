@@ -18,17 +18,17 @@ if [ ${tpid} ]; then
 else
     echo 'Stop Success!'
 fi
-#停止后台服务
+#停止admin服务
 tpid2=`ps -ef|grep $APP_NAME_ADMIN|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
     echo 'Stop blog-web...'
-    kill -14 $tpid
+    kill -14 $tpid2
 fi
 sleep 2
 tpid2=`ps -ef|grep $APP_NAME_ADMIN|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
     echo 'Kill Process!'
-    kill -9 $tpid
+    kill -9 $tpid2
 else
     echo 'Stop Success!'
 fi
