@@ -19,13 +19,13 @@ else
     echo 'Stop Success!'
 fi
 #停止后台服务
-tpid2=`ps -ef|grep $APP_NAME_WEB|grep -v grep|grep -v kill|awk '{print $2}'`
+tpid2=`ps -ef|grep $APP_NAME_ADMIN|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
     echo 'Stop blog-web...'
     kill -14 $tpid
 fi
 sleep 2
-tpid2=`ps -ef|grep $APP_NAME_WEB|grep -v grep|grep -v kill|awk '{print $2}'`
+tpid2=`ps -ef|grep $APP_NAME_ADMIN|grep -v grep|grep -v kill|awk '{print $2}'`
 if [ ${tpid} ]; then
     echo 'Kill Process!'
     kill -9 $tpid
@@ -54,6 +54,6 @@ echo Start blog-web Success!
 
 nohup java -jar $APP_NAME_ADMIN >temp-admin.txt &
 
-echo $! > tpid
+echo $! > tpid2
 
 echo Start blog-admin Success!
