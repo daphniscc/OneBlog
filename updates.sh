@@ -46,13 +46,13 @@ mvn install
 rm -f tpid
 rm -f tpid2
 
-nohup java -jar $APP_NAME_WEB &
+nohup java -jar $APP_NAME_WEB >temp-web.txt &
 
 echo $! > tpid
 
 echo Start blog-web Success!
 
-nohup java -jar $APP_NAME_ADMIN &
+nohup java -jar $APP_NAME_ADMIN >temp-admin.txt &
 
 echo $! > tpid
 
