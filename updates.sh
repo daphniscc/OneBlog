@@ -46,13 +46,13 @@ mvn install
 rm -f tpid
 rm -f tpid2
 
-nohup java -Djava.security.egd=file:/dev/./urandom -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5051 -jar $APP_NAME_WEB --server.port=8443 > /dev/null 2>&1 >> ws.log &
+nohup java -jar $APP_NAME_WEB &
 
 echo $! > tpid
 
 echo Start blog-web Success!
 
-nohup java -Djava.security.egd=file:/dev/./urandom -Xdebug -Xrunjdwp:transport=dt_socket,server=y,suspend=n,address=5052 -jar $APP_NAME_ADMIN --server.port=8085 > /dev/null 2>&1 >> ws.log &
+nohup java -jar $APP_NAME_ADMIN &
 
 echo $! > tpid
 
